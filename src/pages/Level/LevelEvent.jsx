@@ -142,7 +142,7 @@ const LevelEvent = () => {
     <Container>
       <Header title="Event" desc="Post every events happen in ponpes!" />
       <div className="grid grid-cols-3 grid-rows-2 gap-4 sm:gap-8 mb-4 sm:mb-8">
-        <Card flow="col-span-2">
+        <Card flow="col-span-2 flex flex-col">
           <p className="text-md sm:text-2xl font-bold">Your Post</p>
           <p className="mb-8">All post you've posted here!</p>
           <Modal
@@ -168,42 +168,46 @@ const LevelEvent = () => {
             </Carousel>
           </Modal>
           {myposts.length > 0 ? (
-            <div className="grid grid-cols-4 grid-rows-2 gap-4 sm:gap-8 my-4 sm:my-8">
-              {myposts.map((post) => {
-                return (
-                  <SmallCard
-                    nopadding
-                    key={post._id}
-                    flow="cursor-pointer"
-                    onClick={() => onOpenModal(post.images)}
-                  >
-                    <img
-                      className="w-full h-48 rounded-xl object-cover"
-                      src={`http://localhost:4000/${post.images[0]}`}
-                      alt="postimage"
-                    />
-                    <p className="mt-2">{post.title}</p>
-                    <p>{post.date.split("T")[0]}</p>
-                  </SmallCard>
-                );
-              })}
-            </div>
+            <>
+              <div className="grid grid-cols-4 grid-rows-2 gap-4 sm:gap-8 my-4 sm:my-8">
+                {myposts.map((post) => {
+                  return (
+                    <SmallCard
+                      nopadding
+                      key={post._id}
+                      flow="cursor-pointer"
+                      onClick={() => onOpenModal(post.images)}
+                    >
+                      <img
+                        className="w-full h-48 rounded-xl object-cover"
+                        src={`http://localhost:4000/${post.images[0]}`}
+                        alt="postimage"
+                      />
+                      <p className="mt-2">{post.title}</p>
+                      <p>{post.date.split("T")[0]}</p>
+                    </SmallCard>
+                  );
+                })}
+              </div>
+              <div className="py-2">
+                <p className="text-center">{`${totalData} data`}</p>
+                <p className="text-center">{`Showing page ${currentPage} of ${pagesCount}`}</p>
+              </div>
+              <div className="flex justify-center items-center">
+                <PrimaryBtn equal disabled={!prev} onClick={handlePrevPage}>
+                  Previous
+                </PrimaryBtn>
+                <div className="mx-2"></div>
+                <PrimaryBtn equal disabled={!next} onClick={handleNextPage}>
+                  Next
+                </PrimaryBtn>
+              </div>
+            </>
           ) : (
-            ""
+            <div className="flex-1 flex justify-center items-center text-4xl">
+              No Posts Yet
+            </div>
           )}
-          <div className="py-2">
-            <p className="text-center">{`${totalData} data`}</p>
-            <p className="text-center">{`Showing page ${currentPage} of ${pagesCount}`}</p>
-          </div>
-          <div className="flex justify-center items-center">
-            <PrimaryBtn equal disabled={!prev} onClick={handlePrevPage}>
-              Previous
-            </PrimaryBtn>
-            <div className="mx-2"></div>
-            <PrimaryBtn equal disabled={!next} onClick={handleNextPage}>
-              Next
-            </PrimaryBtn>
-          </div>
         </Card>
         <Card flow="flex flex-col">
           <p className="text-md sm:text-2xl font-bold">New Event</p>
@@ -249,36 +253,40 @@ const LevelEvent = () => {
             </div>
           </form>
         </Card>
-        <Card flow="col-span-3">
+        <Card flow="col-span-3 flex flex-col">
           <p className="text-md sm:text-2xl font-bold">Discover</p>
           <p className="mb-8">All post</p>
           {posts.length > 0 ? (
-            <div className="m-auto max-w-4xl grid grid-cols-3 gap-4 sm:gap-8 my-4 sm:my-8">
-              {posts.map((post) => {
-                return (
-                  <SmallCard
-                    nopadding
-                    key={post._id}
-                    flow="cursor-pointer"
-                    onClick={() => onOpenModal(post.images)}
-                  >
-                    <img
-                      className="w-full h-48 rounded-xl object-cover"
-                      src={`http://localhost:4000/${post.images[0]}`}
-                      alt="postimage"
-                    />
-                  </SmallCard>
-                );
-              })}
-            </div>
+            <>
+              <div className="m-auto max-w-4xl grid grid-cols-3 gap-4 sm:gap-8 my-4 sm:my-8">
+                {posts.map((post) => {
+                  return (
+                    <SmallCard
+                      nopadding
+                      key={post._id}
+                      flow="cursor-pointer"
+                      onClick={() => onOpenModal(post.images)}
+                    >
+                      <img
+                        className="w-full h-48 rounded-xl object-cover"
+                        src={`http://localhost:4000/${post.images[0]}`}
+                        alt="postimage"
+                      />
+                    </SmallCard>
+                  );
+                })}
+              </div>
+              <div className="flex justify-center">
+                <PrimaryBtn disabled={!rediscover} onClick={discoverMore}>
+                  Load More
+                </PrimaryBtn>
+              </div>
+            </>
           ) : (
-            ""
+            <div className="flex-1 flex justify-center items-center text-4xl">
+              No Posts Yet
+            </div>
           )}
-          <div className="flex justify-center">
-            <PrimaryBtn disabled={!rediscover} onClick={discoverMore}>
-              Load More
-            </PrimaryBtn>
-          </div>
         </Card>
       </div>
     </Container>

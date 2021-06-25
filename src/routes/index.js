@@ -1,7 +1,7 @@
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 import { lazy, Suspense, useEffect, useState } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import { ThemeContext } from "../context/ThemeContext";
 const Login = lazy(() => import("../pages/Login"));
@@ -83,6 +83,9 @@ const Routes = () => {
                 </>
               ) : (
                 <>
+                  <Route exact path="/">
+                    <Redirect to="/analytics" />
+                  </Route>
                   <Suspense fallback={<div>Loading ...</div>}>
                     <Route path="/analytics" component={SantriAnalytic} />
                   </Suspense>

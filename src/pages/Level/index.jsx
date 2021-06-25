@@ -27,7 +27,7 @@ const Level = () => {
   const [achivEvent, setachivEvent] = useState("");
   const [image, setImage] = useState("");
   const [returning, setReturning] = useState({ kind: "", return_due_date: "" });
-  const [returnBlocked, setReturnBlocked] = useState(true);
+  const [returnBlocked, setReturnBlocked] = useState(false);
   const [updatedReturn, setUpdatedReturn] = useState({
     id: "",
     kind: "",
@@ -82,15 +82,17 @@ const Level = () => {
           `level/santri/${santriId}/returning`,
           config
         );
-        if (data.status === "OK") {
-          return setReturnBlocked(false);
+        if (!data.errors) {
+          if (data.status === "OK") {
+            return setReturnBlocked(false);
+          }
+          setReturnBlocked(true);
+          setUpdatedReturn({
+            id: data.data._id,
+            kind: data.data.kind,
+            return_due_date: data.data.return_due_date,
+          });
         }
-        setReturnBlocked(true);
-        setUpdatedReturn({
-          id: data.data._id,
-          kind: data.data.kind,
-          return_due_date: data.data.return_due_date,
-        });
       }
     } catch (err) {
       console.log(err);
@@ -219,6 +221,7 @@ const Level = () => {
         config
       );
       if (!data.errors) {
+        setRefresh(!refresh);
         return console.log(data.data);
       }
       console.log(data.errors);

@@ -213,7 +213,11 @@ const SantriPayment = () => {
                   </div>
                 </>
               ) : (
-                ""
+                <div className="my-4">
+                  <label htmlFor="image">Select your file</label>
+                  <br />
+                  <Input type="file" onChange={handleImage} />
+                </div>
               )}
             </div>
           ) : (

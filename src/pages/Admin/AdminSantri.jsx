@@ -495,7 +495,7 @@ const AdminSantri = () => {
         </Card>
         <Card flow="col-span-2 flex flex-col">
           <p className="text-md sm:text-2xl font-bold">View Santri</p>
-          <p className="mb-8">See Santri</p>
+          <p className="mb-8">{santri ? santri._id : "See Santri"}</p>
           {santri ? (
             <form onSubmit={updateNewSantri} className="grid grid-cols-2 gap-4">
               <div>
