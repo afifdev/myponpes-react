@@ -8,7 +8,6 @@ import {
   LogoutSVG,
   PaymentsSVG,
   SantriSVG,
-  SettingsSVG,
   TransactionsSVG,
 } from "../../../assets/icons";
 import { UserContext } from "../../../context/UserContext";

@@ -6,7 +6,6 @@ import HomeSVG from "./HomeSVG";
 import LogoutSVG from "./LogoutSVG";
 import MoneySVG from "./MoneySVG";
 import SantriSVG from "./SantriSVG";
-import SettingsSVG from "./SettingsSVG";
 import TransactionsSVG from "./TransactionsSVG";
 import PaymentsSVG from "./PaymentsSVG";
 import RArrowSVG from "./RArrowSVG";
@@ -21,7 +20,6 @@ export {
   MoneySVG,
   PaymentsSVG,
   SantriSVG,
-  SettingsSVG,
   TransactionsSVG,
   RArrowSVG,
 };
