@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        cool: ["PlusJakartaSans", "Roboto", "Helvetica", "Arial", "sans-serif"],
+        cool: ["Gilroy", "Roboto", "Helvetica", "Arial", "sans-serif"],
       },
     },
   },
@@ -17,6 +17,8 @@ module.exports = {
     extend: {
       opacity: ["disabled"],
       backgroundColor: ["disabled"],
+      cursor: ["disabled"],
+      pointerEvents: ["disabled"],
     },
   },
   plugins: [],

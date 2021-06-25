@@ -3,38 +3,37 @@
 @tailwind utilities;
 @layer base {
   @font-face {
-    font-family: "PlusJakartaSans";
+    font-family: "Gilroy";
     font-style: normal;
     font-weight: normal;
-    src: url("./assets/fonts/PlusJakartaSans-Regular.woff2") format("woff2");
+    src: url("./assets/fonts/Gilroy-Regular.woff2") format("woff2");
   }
 
   @font-face {
-    font-family: "PlusJakartaSans";
+    font-family: "Gilroy";
     font-style: normal;
     font-weight: 500;
-    src: url("./assets/fonts/PlusJakartaSans-Medium.woff2") format("woff2");
+    src: url("./assets/fonts/Gilroy-SemiBold.woff2") format("woff2");
   }
 
   @font-face {
-    font-family: "PlusJakartaSans";
+    font-family: "Gilroy";
     font-style: italic;
     font-weight: 500;
-    src: url("./assets/fonts/PlusJakartaSans-MediumItalic.woff2")
-      format("woff2");
+    src: url("./assets/fonts/Gilroy-SemiBoldItalic.woff2") format("woff2");
   }
 
   @font-face {
-    font-family: "PlusJakartaSans";
+    font-family: "Gilroy";
     font-style: normal;
     font-weight: bold;
-    src: url("./assets/fonts/PlusJakartaSans-Bold.woff2") format("woff2");
+    src: url("./assets/fonts/Gilroy-Bold.woff2") format("woff2");
   }
 
   @font-face {
-    font-family: "PlusJakartaSans";
+    font-family: "Gilroy";
     font-style: italic;
     font-weight: bold;
-    src: url("./assets/fonts/PlusJakartaSans-BoldItalic.woff2") format("woff2");
+    src: url("./assets/fonts/Gilroy-BoldItalic.woff2") format("woff2");
   }
 }
